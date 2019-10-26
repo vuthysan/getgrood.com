@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/fav.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Grood is Cambodia’s best brand of electric bikes because we put people first."
+    />
+    <meta
+      name="keywords"
+      content="ebike Cambodia, electric transportation, electric bicycle,  ebike angkor wat, electric bike"
+    />
+    <meta name="author" content="SAN Vuthy" />
+    <meta http-equiv="Content-Type" content="text/html; charset = UTF-8" />
+
+    <!-- =============== Facebook Tag ============== -->
+    <meta property="og:title" content="Ride Grood For Better World" />
+    <meta
+      property="og:description"
+      content="Grood is Cambodia’s best brand of electric bikes because we put people first."
+    />
+    <meta property="og:image" content="%PUBLIC_URL%/image/Kits-With-Bike.png" />
+
+    <!-- =============== Twitter Tag ============== -->
+    <meta name="twitter:title" content="Ride Grood For Better World" />
+    <meta
+      name="twitter:description"
+      content="Grood is Cambodia’s best brand of electric bikes because we put people first."
+    />
+    <meta
+      name="twitter:image"
+      content="%PUBLIC_URL%/image/Kits-With-Bike.png"
+    />
+
+    <link rel="apple-touch-icon" href="logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+    />
+    <title>GROOD | GET GROOD</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+
+    <!-- Load Facebook SDK for JavaScript -->
+    <div id="fb-root"></div>
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          xfbml: true,
+          version: "v4.0"
+        });
+      };
+
+      (function(d, s, id) {
+        var js,
+          fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      })(document, "script", "facebook-jssdk");
+    </script>
+
+    <!-- Your customer chat code -->
+    <div
+      className="fb-customerchat"
+      attribution="setup_tool"
+      page_id="277197759282267"
+    ></div>
+  </body>
+</html>
