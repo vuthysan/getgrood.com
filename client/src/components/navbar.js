@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-scroll";
 
-function Navbar() {
+function Navbar(props) {
   const [navbarToggle, setNavbarToggle] = useState(false);
 
   const handleNavbarToggle = () => {
@@ -10,7 +10,10 @@ function Navbar() {
   return (
     <React.Fragment>
       <div className="home_page_navbar">
-        <div className="ui secondary menu fixed">
+        <div
+          className="ui secondary menu fixed"
+          style={{ backgroundColor: props.background }}
+        >
           <div
             className={
               navbarToggle ? "mobile_back ui container" : "ui container"

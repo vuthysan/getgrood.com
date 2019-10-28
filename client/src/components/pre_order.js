@@ -203,7 +203,11 @@ function PreOrder() {
             ></textarea>
             <br /> <br />
             <center>
-              <button className="ui primary submit button" type="submit">
+              <button
+                className="ui primary submit button"
+                type="submit"
+                style={{ background: "red !important" }}
+              >
                 Submit Now
               </button>
             </center>

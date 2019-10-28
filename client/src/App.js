@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import Navbar from "./components/navbar";
 import Banner from "./components/banner";
@@ -8,14 +8,15 @@ import PreOrder from "./components/pre_order";
 import Footer from "./components/footer";
 
 function App() {
+  const [background, setBackground] = useState("#303030");
   return (
     <div className="App">
-      <Navbar />
-      <Banner />
-      <WhatPage />
-      <WhyPage />
-      <PreOrder />
-      <Footer />
+      <Navbar background={background} />
+      <Banner background={background} />
+      <WhatPage background={background} />
+      <WhyPage background={background} />
+      <PreOrder background={background} />
+      <Footer background={background} />
     </div>
   );
 }

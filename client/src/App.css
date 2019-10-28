@@ -271,11 +271,6 @@ p {
 .pre_order {
   padding-top: 100px;
 }
-
-.fas.fa-heart {
-  color: #fdc501;
-}
-
 input::placeholder {
   color: black;
   font-size: 1m;
