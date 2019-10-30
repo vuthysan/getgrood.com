@@ -46,12 +46,12 @@ function WhyPage() {
               <div className="column">
                 <img alt="grood" src="./image/1yearw.png" />
                 <h1 className="invest_section_title">
-                  The peace of mind of an indestry leading one year warranty
+                  The peace of mind of an industry leading one year warranty
                 </h1>
               </div>
               <div className="column">
                 <img alt="grood" src="./image/local-cop.png" />
-                <h1 className="invest_section_title">Local Compnay</h1>
+                <h1 className="invest_section_title">Local Company</h1>
               </div>
               <div className="column">
                 <img alt="grood" src="./image/customer-care.png" />

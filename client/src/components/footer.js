@@ -1,9 +1,11 @@
 import React from "react";
 
-function Footer() {
+function Footer(props) {
+  console.log(props);
+
   return (
     <center>
-      <div className="footer">
+      <div className="footer" style={{ backgroundColor: props.background }}>
         <div className="ui container">
           <div className="ui stackable two column grid">
             <div className="column">
@@ -20,6 +22,17 @@ function Footer() {
                   SmallWorld Venture
                 </p>
                 <p className="copyright">&#169; 2019 All Rights Reserved</p>
+
+                <div className="changeColorDiv">
+                  <div
+                    className="blackColor"
+                    onClick={props.changeToBlack}
+                  ></div>
+                  <div
+                    className="darkGreenColor"
+                    onClick={props.changeToDarkGreen}
+                  ></div>
+                </div>
               </div>
             </div>
           </div>

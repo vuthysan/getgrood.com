@@ -9,14 +9,24 @@ import Footer from "./components/footer";
 
 function App() {
   const [background, setBackground] = useState("#303030");
+  const changeToBlack = () => {
+    setBackground("#303030");
+  };
+  const changeToDarkGreen = () => {
+    setBackground("#1d3c27");
+  };
   return (
     <div className="App">
       <Navbar background={background} />
-      <Banner background={background} />
-      <WhatPage background={background} />
-      <WhyPage background={background} />
+      <Banner />
+      <WhatPage />
+      <WhyPage />
       <PreOrder background={background} />
-      <Footer background={background} />
+      <Footer
+        background={background}
+        changeToBlack={changeToBlack}
+        changeToDarkGreen={changeToDarkGreen}
+      />
     </div>
   );
 }

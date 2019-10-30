@@ -58,7 +58,12 @@ function Navbar(props) {
                 offset={0}
                 duration={500}
               >
-                <button className="insize ui button">Pre-Order Now</button>
+                <button
+                  className="insize ui button preOrderBtn"
+                  style={{ color: props.background }}
+                >
+                  Pre-Order Now
+                </button>
               </Link>
               <img
                 alt="grood"

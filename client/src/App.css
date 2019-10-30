@@ -150,11 +150,6 @@ p {
   margin-right: -159px;
 }
 
-.ui.button {
-  background-color: #f5c644 !important;
-  color: black !important;
-}
-
 .hh2 {
   color: #f5c644;
 }
@@ -215,7 +210,7 @@ p {
 }
 .banner_image {
   position: absolute;
-  top: 20%;
+  top: 10%;
   right: -15%;
 }
 .banner_image img {
@@ -276,12 +271,15 @@ input::placeholder {
   font-size: 1m;
 }
 
-.ui.primary.submit.button {
-  background-color: #4b4a4a !important;
+.submitBtn {
+  /* background-color: #4b4a4a !important; */
   font-size: 15px;
   width: 30%;
   float: right;
   color: #ffffff !important;
+}
+.preOrderBtn {
+  background: #fdc501 !important;
 }
 
 .ui.form {
@@ -290,7 +288,6 @@ input::placeholder {
 }
 
 .footer {
-  background-color: #303030;
   padding: 10px 0px;
 }
 
@@ -318,6 +315,31 @@ input::placeholder {
   margin-top: 0;
   z-index: 1000;
 }
+.blackColor {
+  background-color: #303030 !important;
+  border: 3px solid #ffffff;
+  height: 30px !important;
+  width: 30px !important;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  float: right;
+  margin-left: 10px;
+}
+.darkGreenColor {
+  background-color: #1d3c27 !important;
+  border: 3px solid #ffffff;
+  height: 30px !important;
+  width: 30px !important;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  float: right;
+}
 
 .menuside {
   margin-top: 100px;
@@ -336,6 +358,11 @@ input::placeholder {
   padding: 70px 0px !important;
   position: relative;
 }
+.discount_image {
+  position: absolute;
+  height: 250px;
+  top: -25px;
+}
 .pre_order_image {
   background: url("/image/phnompenh.png");
   background-repeat: no-repeat;
@@ -349,7 +376,7 @@ input::placeholder {
   position: absolute;
   right: -23vw;
   z-index: 0;
-  top: 48%;
+  /* top: 46%; */
 }
 .preorder_width {
   width: 100% !important;
@@ -364,6 +391,8 @@ input::placeholder {
 }
 .footer_image {
   width: 10vw !important;
+  position: relative;
+  top: 25px;
 }
 .pre_order_label {
   margin: 10px 0px !important;
@@ -391,6 +420,13 @@ input::placeholder {
 }
 .ui.fixed.menu {
   background-color: #303030;
+}
+select.ui.dropdown {
+  height: 43px;
+  padding: 0.5em;
+  border: 0px solid rgba(34, 36, 38, 0.15);
+  visibility: visible;
+  box-shadow: none;
 }
 
 /*=====================================================
@@ -464,17 +500,28 @@ input::placeholder {
     color: #f5c644;
     margin-right: 0px;
   }
+  .changeColorDiv {
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 979px) {
 }
 
 @media only screen and (max-width: 767px) {
+  .changeColorDiv {
+    display: none;
+  }
+  .discount_image {
+    position: absolute;
+    height: 111px;
+    top: -11px;
+  }
   .ui.container {
     width: 100% !important;
     margin: 0px !important;
   }
-  .ui.primary.submit.button {
+  .submitBtn {
     float: none;
     width: 60%;
   }

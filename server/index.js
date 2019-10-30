@@ -8,21 +8,21 @@ const app = express();
 
 app.use(cors("*"));
 
-const corsMiddleware = function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "178.128.217.213"); //replace localhost with actual host
-  res.header(
-    "Access-Control-Allow-Methods",
-    "OPTIONS, GET, PUT, PATCH, POST, DELETE"
-  );
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Content-Type, X-Requested-With, Authorization"
-  );
-
+app.options("*", cors());
+var allowCrossDomain = function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
+  res.header("Access-Control-Allow-Headers", "Content-Type");
   next();
 };
+app.use(allowCrossDomain);
 
-//app.use(corsMiddleware);
+// parse application/x-www-form-urlencoded
+app.use(
+  bodyParser.urlencoded({
+    extended: false
+  })
+);
 
 // parse application/json
 app.use(express.urlencoded({ extended: true }));
@@ -45,9 +45,7 @@ app.post("/api/form", (req, res) => {
               /* -------------------------------------
                   GLOBAL RESETS
               ------------------------------------- */
-
               /*All the styling goes here*/
-
               img {
                 border: none;
                 -ms-interpolation-mode: bicubic;
@@ -258,41 +256,41 @@ app.post("/api/form", (req, res) => {
                   RESPONSIVE AND MOBILE FRIENDLY STYLES
               ------------------------------------- */
               @media only screen and (max-width: 620px) {
-                table[className="body"] h1 {
+                table[class="body"] h1 {
                   font-size: 28px !important;
                   margin-bottom: 10px !important;
                 }
-                table[className="body"] p,
-                table[className="body"] ul,
-                table[className="body"] ol,
-                table[className="body"] td,
-                table[className="body"] span,
-                table[className="body"] a {
+                table[class="body"] p,
+                table[class="body"] ul,
+                table[class="body"] ol,
+                table[class="body"] td,
+                table[class="body"] span,
+                table[class="body"] a {
                   font-size: 16px !important;
                 }
-                table[className="body"] .wrapper,
-                table[className="body"] .article {
+                table[class="body"] .wrapper,
+                table[class="body"] .article {
                   padding: 10px !important;
                 }
-                table[className="body"] .content {
+                table[class="body"] .content {
                   padding: 0 !important;
                 }
-                table[className="body"] .container {
+                table[class="body"] .container {
                   padding: 0 !important;
                   width: 100% !important;
                 }
-                table[className="body"] .main {
+                table[class="body"] .main {
                   border-left-width: 0 !important;
                   border-radius: 0 !important;
                   border-right-width: 0 !important;
                 }
-                table[className="body"] .btn table {
+                table[class="body"] .btn table {
                   width: 100% !important;
                 }
-                table[className="body"] .btn a {
+                table[class="body"] .btn a {
                   width: 100% !important;
                 }
-                table[className="body"] .img-responsive {
+                table[class="body"] .img-responsive {
                   height: auto !important;
                   max-width: 100% !important;
                   width: auto !important;
@@ -331,8 +329,8 @@ app.post("/api/form", (req, res) => {
               }
             </style>
           </head>
-          <body className="">
-            <span className="preheader"
+          <body class="">
+            <span class="preheader"
               >This is preheader text. Some clients will show this text as a
               preview.</span
             >
@@ -341,17 +339,17 @@ app.post("/api/form", (req, res) => {
               border="0"
               cellpadding="0"
               cellspacing="0"
-              className="body"
+              class="body"
             >
               <tr>
                 <td>&nbsp;</td>
-                <td className="container">
-                  <div className="content">
+                <td class="container">
+                  <div class="content">
                     <!-- START CENTERED WHITE CONTAINER -->
-                    <table role="presentation" className="main">
+                    <table role="presentation" class="main">
                       <!-- START MAIN CONTENT AREA -->
                       <tr>
-                        <td className="wrapper">
+                        <td class="wrapper">
                           <table
                             role="presentation"
                             border="0"
@@ -362,7 +360,7 @@ app.post("/api/form", (req, res) => {
                               <td>
                                 <b><h2>The Product Information</h2></b>
                                 <p>
-                                    Thank you for your order with GROOD.
+                                    Thank you for your order with KOOMPI.
                                 </p>
                                 <p>Your pre-order details are shown below for your reference:</p>
                                 <p>Name: <b>
@@ -372,23 +370,20 @@ app.post("/api/form", (req, res) => {
                                   request.phone_number
                                 }</b></p>
                                 <p>Payment Option: <b>${request.payment}</b></p>
-                                <p>Color: <b>${request.size}</b></p>
+                                <p>GROOD Size: <b>${request.size}</b></p>
                                 <p>Message: <b>${request.message}</b></p>
                                 <p>Thanks</p>
-                                <p>Love, GROOD TEAM</p>
+                                <p>Love, KOOMPI TEAM</p>
                               </td>
                             </tr>
                           </table>
                         </td>
                       </tr>
-
                       <!-- END MAIN CONTENT AREA -->
                     </table>
-
                     <!-- END CENTERED WHITE CONTAINER -->
-
                     <!-- START FOOTER -->
-                    <div className="footer">
+                    <div class="footer">
                       <table
                         role="presentation"
                         border="0"
@@ -396,8 +391,8 @@ app.post("/api/form", (req, res) => {
                         cellspacing="0"
                       >
                         <tr>
-                          <td className="content-block">
-                            <span className="apple-link">Power by GROOD TEAM</span>
+                          <td class="content-block">
+                            <span class="apple-link">Power by KOOMPI TEAM</span>
                           </td>
                         </tr>
                       </table>
@@ -424,8 +419,8 @@ app.post("/api/form", (req, res) => {
   });
   // Step 2
   const mailOptions = {
-    from: "getgrood.com", // sender address
-    to: `san.vuthy08@gmail.com`, // list of receivers
+    from: "koompi.com@gmail.com", // sender address
+    to: `${req.body.email}, getgrood@gmail.com`, // list of receivers
     subject: "Congratulations", // Subject line
     html: output // html body
   };
@@ -436,7 +431,7 @@ app.post("/api/form", (req, res) => {
   });
 });
 
-const port = 4401;
+const port = process.env.PORT || 4401;
 
 app.listen(port, () => {
   console.log(`App listening on port ${port}!`);
