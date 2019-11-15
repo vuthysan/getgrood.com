@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import useForm from "react-hook-form";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { Link } from "react-scroll";
 
 const Toast = Swal.mixin({
   toast: true,
@@ -31,37 +32,14 @@ function PreOrder(props) {
   console.log(choice);
 
   const onSubmit = data => {
-    console.log(data);
-
-    // axios
-    //   .post("https://mail.getgrood.com/api/form", { ...data })
-    //   .then(e => {
-    //     Toast.fire({
-    //       type: "success",
-    //       title: "Thank you for your order. Please, check your email."
-    //     });
-    //   })
-    //   .catch(e => {
-    //     Toast.fire({
-    //       type: "error",
-    //       title: "Sorry, there is an error. Please contact us by Messenger."
-    //     });
-    //   });
-
-    // axios
-    //   .post("http://localhost:4401/api/form", { ...data })
-    //   .then(e => {
-    //     Toast.fire({
-    //       type: "success",
-    //       title: "Thank you for your order. Please, check your email."
-    //     });
-    //   })
-    //   .catch(e => {
-    //     Toast.fire({
-    //       type: "error",
-    //       title: "Sorry, there is an error. Please contact us by Messenger."
-    //     });
-    //   });
+    // console.log(data);
+    // https://mail.getgrood.com/api/form
+    axios.post("http://localhost:4401/api/form", { ...data }).then(() => {
+      Toast.fire({
+        type: "success",
+        title: "Thank you for your order. Please, check your email."
+      });
+    });
   };
 
   const GroodSize_And_Payment = () => {
@@ -166,11 +144,36 @@ function PreOrder(props) {
   return (
     <React.Fragment>
       <div className="pre_order_background">
-        <img src="/image/sales.png" alt="" className="discount_image" />
+        <Link
+          to="pre_order_background"
+          spy={true}
+          smooth={true}
+          offset={0}
+          duration={500}
+        >
+          <img src="/image/sales.png" alt="" className="discount_image" />
+        </Link>
+
+        {/* <div className="pre_order_grood_bike_image">
+          <img
+            src={
+              choice === "grood_electric_bike"
+                ? "/image/grood_ebike.png"
+                : "/image/grood_kit.png"
+            }
+            alt="grood"
+            srcset=""
+          />
+        </div> */}
         <div className="pre_order_image"> </div>
         <div className="ui container">
           <center>
-            <h1 className="order_title">Pre-Order Form</h1>
+            <h1 className="order_title">GROOD Pre-Sale</h1>
+            <p className="order_desc">
+              Thank you for interested in what we do. Let's get started. We have
+              you also feel GROOD too after filling up the form below. We will
+              be in touch with you soon.
+            </p>
           </center>
           <form
             className="ui form segment preorder_width"
@@ -179,14 +182,16 @@ function PreOrder(props) {
             <div className="two fields">
               <div className="field">
                 <input
-                  placeholder="Full Name"
+                  placeholder="Grood's Owner Name"
                   name="fname"
                   className="form_input"
                   type="text"
                   ref={register({ required: true, maxlength: 20 })}
                 />
                 {errors.fname && (
-                  <p className="error_message">Full Name is required</p>
+                  <p className="error_message">
+                    Grood's Owner Name is required
+                  </p>
                 )}
               </div>
               <div className="field">
@@ -204,14 +209,14 @@ function PreOrder(props) {
                   })}
                 />
                 {errors.email && (
-                  <p className="error_message">Email is required</p>
+                  <p className="error_message">Email Address is required</p>
                 )}
               </div>
             </div>
             <div className="two fields">
               <div className="field">
                 <input
-                  placeholder="Phone Number"
+                  placeholder="Phone Number "
                   type="number"
                   className="form_input"
                   name="phone_number"
@@ -223,11 +228,18 @@ function PreOrder(props) {
               </div>
 
               <div className="field">
-                <select className="ui dropdown" onChange={handleChoice}>
+                <select
+                  className="ui dropdown"
+                  onChange={handleChoice}
+                  name="buy"
+                  ref={register({ required: true, minLength: 8 })}
+                >
                   <option value="grood_electric_bike">
-                    GROOD Electric Bike
+                    GROOD Electric Bike (Price: $513)
                   </option>
-                  <option value="conversion_kit">Conversion Kit</option>
+                  <option value="conversion_kit">
+                    Conversion Kit (Price: $351)
+                  </option>
                 </select>
               </div>
             </div>
@@ -252,7 +264,6 @@ function PreOrder(props) {
                 Submit Now
               </button>
             </center>
-            <br /> <br />
           </form>
         </div>
       </div>

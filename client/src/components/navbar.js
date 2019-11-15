@@ -42,6 +42,16 @@ function Navbar(props) {
               </Link>
               <Link
                 className="item web_menu_list"
+                to="grood_kit_page"
+                spy={true}
+                smooth={true}
+                offset={0}
+                duration={500}
+              >
+                Grood Kit
+              </Link>
+              <Link
+                className="item web_menu_list"
                 to="why_section"
                 spy={true}
                 smooth={true}
@@ -50,6 +60,7 @@ function Navbar(props) {
               >
                 For Greater Good
               </Link>
+
               <Link
                 className="item listbtn "
                 to="pre_order_background"
@@ -93,6 +104,16 @@ function Navbar(props) {
             </Link>
             <Link
               className="item"
+              to="grood_kit_page"
+              spy={true}
+              smooth={true}
+              offset={0}
+              duration={500}
+            >
+              Grood Kit
+            </Link>
+            <Link
+              className="item"
               to="why_section"
               spy={true}
               smooth={true}
@@ -101,6 +122,7 @@ function Navbar(props) {
             >
               For Greater Good
             </Link>
+
             <Link
               className="item "
               to="pre_order_background"

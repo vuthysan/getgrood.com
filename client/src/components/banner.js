@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-scroll";
 
 function Banner() {
   return (
@@ -17,11 +18,23 @@ function Banner() {
                 truly great, a company has to stand for something… Grood stands
                 for you.
               </p>
+              <Link
+                className="item web_menu_list"
+                to="groodPP"
+                spy={true}
+                smooth={true}
+                offset={0}
+                duration={500}
+              >
+                <button className="insize ui button preOrderBtn">
+                  Learn More
+                </button>
+              </Link>
             </div>
             <div className="banner_image">
               <img
                 alt="grood"
-                src={"./image/bike.png"}
+                src={"./image/grood_bike.png"}
                 className="ui fluid image"
               />
             </div>

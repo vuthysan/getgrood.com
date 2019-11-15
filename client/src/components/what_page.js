@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import { Link } from "react-scroll";
 
 function WhatPage() {
   return (
@@ -7,7 +8,7 @@ function WhatPage() {
         <div className="ui container">
           <div className="whatgrood">
             <h1 className="titlesize">
-              What's<span className="hh2"> Grood</span>?
+              What's<span className="hh2"> Grood</span> Kit?
             </h1>
             <p>
               An electric bike is equipped with a motor and a battery. To make
@@ -18,6 +19,18 @@ function WhatPage() {
           </div>
           <div className="imagestyle">
             <center>
+              <Link
+                className="item web_menu_list"
+                to="grood_kit_page"
+                spy={true}
+                smooth={true}
+                offset={0}
+                duration={500}
+              >
+                <button className="insize ui button preOrderBtn pageBtn">
+                  Learn More
+                </button>
+              </Link>
               <img
                 alt="grood"
                 src="./image/Kits-With-Bike.png"

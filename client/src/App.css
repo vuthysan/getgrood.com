@@ -39,11 +39,26 @@ p {
 
 .form_input {
   padding: 13px !important;
+}
+.ui.form input,
+.ui.form select,
+.ui.form textarea {
+  background: #ffc20261 !important;
   border-color: #fdc501 !important;
+}
+.ui.form input::placeholder,
+.ui.form textarea::placeholder {
+  color: #777777;
+}
+.order_desc {
+  width: 65% !important;
+  font-size: 20px;
+  /* margin-bottom: -20px; */
 }
 .form_input:focus,
 .form_textarea textarea:focus {
   border-color: #74747400 !important;
+  /* background-color: #ffffff !important; */
 }
 
 .form_textarea {
@@ -210,7 +225,7 @@ p {
 }
 .banner_image {
   position: absolute;
-  top: 10%;
+  top: 20%;
   right: -15%;
 }
 .banner_image img {
@@ -354,14 +369,23 @@ input::placeholder {
   display: none;
 }
 .pre_order_background {
-  background-color: #fdc501;
+  background-color: #eff9fb;
   padding: 70px 0px !important;
   position: relative;
+  padding-bottom: 10% !important;
 }
 .discount_image {
-  position: absolute;
-  height: 250px;
-  top: -25px;
+  position: fixed;
+  height: 230px;
+  top: 62px;
+  z-index: 10;
+  cursor: pointer;
+}
+.pageBtn {
+  padding: 15px 40px !important;
+}
+.groodKit img {
+  width: 450px !important;
 }
 .pre_order_image {
   background: url("/image/phnompenh.png");
@@ -377,11 +401,12 @@ input::placeholder {
   right: -23vw;
   z-index: 0;
   /* top: 46%; */
+  bottom: -12%;
 }
 .preorder_width {
   width: 100% !important;
   padding: 0px 10vw !important;
-  margin-top: 70px !important;
+  margin-top: 30px !important;
 }
 .under_footer {
   text-align: right;
@@ -412,8 +437,25 @@ input::placeholder {
   font-size: 16px;
 }
 
+.ui.table {
+  width: 100%;
+  background: #dadfe2;
+  margin: 1em 0;
+  margin-top: 3em !important;
+  margin-bottom: 3em !important;
+  border: 0px solid rgba(34, 36, 38, 0) !important;
+  border-radius: 0px !important;
+}
+.ui.table td {
+  font-size: 15px !important;
+}
+.grood_kit_section {
+  width: 70%;
+  margin: 0px auto;
+}
+
 .imagestyle img {
-  width: 60% !important;
+  width: 80% !important;
 }
 .phone_menu {
   display: none;
@@ -424,15 +466,105 @@ input::placeholder {
 select.ui.dropdown {
   height: 43px;
   padding: 0.5em;
-  border: 0px solid rgba(34, 36, 38, 0.15);
+  border: 1px solid rgba(34, 36, 38, 0.15);
   visibility: visible;
   box-shadow: none;
+}
+.pre_order_grood_bike_image img {
+  width: 20% !important;
+  position: absolute;
+  left: 5%;
+  top: 29%;
+}
+.footer_section {
+  position: relative;
+}
+.firstBike {
+  width: 10%;
+  position: absolute;
+  top: -135%;
+  left: 0;
+  animation-name: cycling;
+  animation-duration: 20s;
+  /* animation-fill-mode: both; */
+  animation-iteration-count: infinite;
+  animation-direction: reverse;
+  animation-timing-function: linear;
+}
+.secondBike {
+  width: 10%;
+  position: absolute;
+  top: -100%;
+  left: 0;
+  animation-name: cycling;
+  animation-duration: 20s;
+  /* animation-fill-mode: both; */
+  animation-iteration-count: infinite;
+  animation-direction: reverse;
+  animation-timing-function: linear;
+}
+.groodPP {
+  position: relative;
+}
+
+.grood_pp_image_background {
+  background: url("/image/phnompenh.png");
+  height: 355px;
+  background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@keyframes cycling {
+  0% {
+    transform: translateX(0px);
+    -webkit-transform: translateX(0px);
+    -moz-transform: translateX(0px);
+    -ms-transform: translateX(0px);
+    -o-transform: translateX(0px);
+  }
+  to {
+    transform: translateX(2000px);
+    -webkit-transform: translateX(2000px);
+    -moz-transform: translateX(2000px);
+    -ms-transform: translateX(2000px);
+    -o-transform: translateX(2000px);
+  }
+}
+.footer_sw_logo {
+  height: 80px !important;
 }
 
 /*=====================================================
 =            Bootstrap 2.3.2 Media Queries            =
 =====================================================*/
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1600px) {
+  .container {
+    width: 70% !important;
+  }
+  .banner_image {
+    position: absolute;
+    top: 20%;
+    right: -25%;
+  }
+  .discount_image {
+    height: 200px;
+  }
+  .pre_order_grood_bike_image img {
+    width: 20% !important;
+    position: absolute;
+    left: 3%;
+    top: 29%;
+  }
+  .secondBike {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  .container {
+    width: 80% !important;
+  }
   .banner_image {
     display: none;
   }
@@ -503,6 +635,18 @@ select.ui.dropdown {
   .changeColorDiv {
     display: none;
   }
+  .discount_image {
+    height: 120px !important;
+  }
+  .grood_pp_image_background img {
+    width: 450px !important;
+  }
+  .pre_order_grood_bike_image img {
+    display: none;
+  }
+  .ui.segment {
+    padding: 15px 30px !important;
+  }
 }
 
 @media only screen and (max-width: 979px) {
@@ -552,7 +696,8 @@ select.ui.dropdown {
     text-align: left;
   }
   .banner_ride {
-    padding: 10px 20px;
+    margin-top: 40px;
+    padding: 60px 20px;
   }
   .why_section_title {
     font-size: 22px;
@@ -564,7 +709,7 @@ select.ui.dropdown {
   }
   .ui.left.visible.sidebar {
     background-color: #4b4a4a;
-    width: 55% !important;
+    width: 65% !important;
   }
   .ui.labeled.icon.menu .item {
     color: #ffffff !important;
@@ -586,7 +731,7 @@ select.ui.dropdown {
     display: inline;
   }
   .footer_image {
-    width: 30vw !important;
+    display: none !important;
   }
   .under_footer {
     text-align: center;
@@ -603,9 +748,61 @@ select.ui.dropdown {
     position: fixed;
     height: 100%;
   }
+  .pageBtn {
+    padding: 15px 40px !important;
+  }
+  .imagestyle img {
+    width: 100% !important;
+  }
+  .imagestyle {
+    padding-bottom: 50px;
+  }
+  .grood_pp_image_background {
+    background-size: contain;
+    height: 300px;
+  }
+  .groodKit img {
+    width: 70% !important;
+  }
+  .grood_kit_section {
+    width: 90%;
+    margin: 0px auto;
+  }
+  .discount_image {
+    display: none;
+  }
+  .order_desc {
+    width: 90% !important;
+    font-size: 20px;
+    margin-bottom: -20px;
+  }
+  .pre_order_background {
+    padding: 50px 0px !important;
+  }
+  .featureImg {
+    display: none !important;
+  }
+  .featureTable {
+    padding: 0px 15px !important;
+  }
+  .preOrderBtn {
+    padding: 12px 30px !important;
+  }
+  .grood_kit_section {
+    margin-top: -45px;
+  }
 }
 
 @media only screen and (max-width: 480px) {
+  .grood_pp_image_background img {
+    width: 80% !important;
+  }
+  .featureTable {
+    margin-top: -40px !important;
+  }
+  .groodKit img {
+    width: 70% !important;
+  }
 }
 
 @media only screen and (max-width: 320px) {

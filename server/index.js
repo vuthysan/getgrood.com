@@ -5,6 +5,7 @@ const path = require("path");
 const nodemailer = require("nodemailer");
 const cors = require("cors");
 const app = express();
+require("dotenv").config();
 
 app.use(cors("*"));
 
@@ -364,16 +365,27 @@ app.post("/api/form", (req, res) => {
                                 </p>
                                 <p>Your pre-order details are shown below for your reference:</p>
                                 <p>Name: <b>
-                                ${request.fname + " " + request.lname}</b></p>
+                                ${request.fname}</b></p>
                                 <p>Email: <b>${request.email}</b></p>
                                 <p>Phone Number: <b>${
                                   request.phone_number
-                                }</b></p>
-                                <p>Payment Option: <b>${request.payment}</b></p>
-                                <p>GROOD Size: <b>${request.size}</b></p>
+                                }</b> </p>
+                                ${
+                                  request.buy === "grood_electric_bike"
+                                    ? `<div>
+
+                                    <p>
+                                      Payment Option:
+                                      <b>${request.payment}</b>
+                                    </p>
+                                    <p>GROOD Size: <b>${request.size}</b></p>
+                                  </div>`
+                                    : ""
+                                }
+
                                 <p>Message: <b>${request.message}</b></p>
-                                <p>Thanks</p>
-                                <p>Love, KOOMPI TEAM</p>
+                                <p>With Love,</p>
+                                <p>Grood Team</p>
                               </td>
                             </tr>
                           </table>
@@ -392,7 +404,7 @@ app.post("/api/form", (req, res) => {
                       >
                         <tr>
                           <td class="content-block">
-                            <span class="apple-link">Power by KOOMPI TEAM</span>
+                            <span class="apple-link">Power by SmallWorld Team</span>
                           </td>
                         </tr>
                       </table>
@@ -413,13 +425,13 @@ app.post("/api/form", (req, res) => {
     tls: true,
     secure: true,
     auth: {
-      user: "amoogli.web@gmail.com",
-      pass: "AmoogliWeb2017*$$$$$$"
+      user: process.env.EMAIL,
+      pass: process.env.PASSWORD
     }
   });
   // Step 2
   const mailOptions = {
-    from: "koompi.com@gmail.com", // sender address
+    from: "getgrood@gmail.com", // sender address
     to: `${req.body.email}, getgrood@gmail.com`, // list of receivers
     subject: "Congratulations", // Subject line
     html: output // html body
