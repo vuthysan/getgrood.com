@@ -32,7 +32,7 @@ function GroodKit() {
             </div>
           </div>
         </div>
-        <React.Fragment>
+        {/* <React.Fragment>
           <div className="what_page_background_color">
             <div className="ui container">
               <div className="whatgrood">
@@ -77,7 +77,7 @@ function GroodKit() {
               </div>
             </div>
           </div>
-        </React.Fragment>
+        </React.Fragment> */}
       </React.Fragment>
     </div>
   );

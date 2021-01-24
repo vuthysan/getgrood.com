@@ -63,7 +63,7 @@ function Navbar(props) {
 
               <Link
                 className="item listbtn "
-                to="pre_order_background"
+                to="order-grood"
                 spy={true}
                 smooth={true}
                 offset={0}

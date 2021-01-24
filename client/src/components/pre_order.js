@@ -8,7 +8,7 @@ const Toast = Swal.mixin({
   toast: true,
   position: "top-end",
   showConfirmButton: false,
-  timer: 5000
+  timer: 5000,
 });
 
 function PreOrder(props) {
@@ -17,27 +17,27 @@ function PreOrder(props) {
   const [size, setSize] = useState("size S");
   const [choice, setChoice] = useState("grood_electric_bike");
 
-  const handleChoice = e => {
+  const handleChoice = (e) => {
     setChoice(e.target.value);
   };
 
-  const handlePayment = e => {
+  const handlePayment = (e) => {
     setPayment(e.target.value);
   };
 
-  const handleSizeChange = e => {
+  const handleSizeChange = (e) => {
     setSize(e.target.value);
   };
 
   console.log(choice);
 
-  const onSubmit = data => {
+  const onSubmit = (data) => {
     // console.log(data);
     // https://mail.getgrood.com/api/form
     axios.post("http://localhost:4401/api/form", { ...data }).then(() => {
       Toast.fire({
         type: "success",
-        title: "Thank you for your order. Please, check your email."
+        title: "Thank you for your order. Please, check your email.",
       });
     });
   };
@@ -143,8 +143,8 @@ function PreOrder(props) {
 
   return (
     <React.Fragment>
-      <div className="pre_order_background">
-        <Link
+      <div style={{ padding: "80px 0px" }} className="order-grood">
+        {/* <Link
           to="pre_order_background"
           spy={true}
           smooth={true}
@@ -152,7 +152,7 @@ function PreOrder(props) {
           duration={500}
         >
           <img src="/image/sales.png" alt="" className="discount_image" />
-        </Link>
+        </Link> */}
 
         {/* <div className="pre_order_grood_bike_image">
           <img
@@ -204,8 +204,8 @@ function PreOrder(props) {
                     required: true,
                     pattern: {
                       value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                      message: "Invalid email address"
-                    }
+                      message: "Invalid email address",
+                    },
                   })}
                 />
                 {errors.email && (
@@ -235,10 +235,10 @@ function PreOrder(props) {
                   ref={register({ required: true, minLength: 8 })}
                 >
                   <option value="grood_electric_bike">
-                    GROOD Electric Bike (Price: $513)
+                    GROOD Electric Bike (Price: $620)
                   </option>
                   <option value="conversion_kit">
-                    Conversion Kit (Price: $351)
+                    Conversion Kit (Price: $390)
                   </option>
                 </select>
               </div>
